@@ -364,7 +364,7 @@ private
       1.upto(formation[@names[process]]) do |n|
         reader, writer = create_pipe
         begin
-          pid = process.run(:output => writer, :env => {
+          pid = process.run(:output => $stdout, :env => {
             "PORT" => port_for(process, n).to_s,
             "PS" => name_for_index(process, n)
           })
